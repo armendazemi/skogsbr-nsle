@@ -1,0 +1,125 @@
+{% assign headerBg = 'bg-brand-section-dark' %}
+{% include 'new_header' %}
+
+<top-element>
+  <section class="padding-y-3xl padding-top-lg-2xl padding-bottom-lg-4xl bg-brand-section-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 d-flex flex-column row-gap-base row-gap-lg-lg">
+          <h1 class="display-lg text-white">{{ page.title }}</h1>
+          {{ 'sub-heading' | page_editable: class: 'text-lg text-white' }}
+        </div>
+      </div>
+    </div>
+  </section>
+</top-element>
+
+
+{% capture hasContent %}{{ 'callout-text-1' | has_page_editable }}{% endcapture %}
+{% if hasContent == 'true' %}
+  <section class="padding-top-3xl padding-top-lg-5xl">
+    <div class="container">
+      {% if admin %}
+        <div class="callout-grid column-gap-2xl row-gap-xl mb-3">
+          <p class="subtitle-1">Text yta</p>
+          <p class="subtitle-1">Bild yta</p>
+        </div>
+      {% endif %}
+
+      <div class="callout-grid column-gap-2xl row-gap-xl">
+        <div class="callout-text d-flex flex-column row-gap-base">
+          {{ 'callout-text-1' | page_editable: class: 'd-flex flex-column align-items-start row-gap-lg diplay-md-heading text-md-p p-color-secondary brand-button-yellow-editable' }}
+        </div>
+
+        {{ 'callout-image-1' | page_editable: class: 'callout-image' }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+{% capture hasContent %}{{ 'callout-text-2' | has_page_editable }}{% endcapture %}
+{% if hasContent == 'true' %}
+  <section class="padding-y-3xl padding-y-lg-5xl">
+    <div class="container">
+      {% if admin %}
+        <div class="callout-grid column-gap-2xl row-gap-xl mb-3">
+          <p class="subtitle-1">Bild yta</p>
+          <p class="subtitle-1">Text yta</p>
+        </div>
+      {% endif %}
+
+
+      <div class="callout-grid column-gap-2xl row-gap-xl">
+        {{ 'callout-image-2' | page_editable: class: 'callout-image' }}
+
+        <div class="callout-text d-flex flex-column row-gap-base">
+          {{ 'callout-text-2' | page_editable: class: 'd-flex flex-column align-items-start row-gap-lg diplay-md-heading text-md-p p-color-secondary brand-button-yellow-editable' }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+{% capture hasContent %}{{ 'callout-text-3' | has_page_editable }}{% endcapture %}
+{% if hasContent == 'true' %}
+  <section class="padding-y-3xl padding-y-lg-5xl bg-secondary">
+    <div class="container">
+      {% if admin %}
+        <div class="callout-grid column-gap-2xl row-gap-xl mb-3">
+          <p class="subtitle-1">Text yta</p>
+          <p class="subtitle-1">Bild yta</p>
+        </div>
+      {% endif %}
+
+      <div class="callout-grid column-gap-2xl row-gap-xl">
+        <div class="callout-text d-flex flex-column row-gap-base">
+          {{ 'callout-text-3' | page_editable: class: 'd-flex flex-column align-items-start row-gap-lg diplay-md-heading text-md-p p-color-secondary brand-button-yellow-editable' }}
+        </div>
+
+        {{ 'callout-image-3' | page_editable: class: 'callout-image' }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% capture hasContent %}{{ 'text-field' | has_page_editable }}{% endcapture %}
+{% if hasContent == 'true' %}
+  <section class="padding-y-3xl padding-y-lg-5xl">
+    <div class="container">
+      <div class="row">
+        {% if admin %}
+          <p class="subtitle-1">Text yta</p>
+        {% endif %}
+        <div class="col-lg-8">
+          {{ 'text-field' | page_editable: class: ' display-md-heading p-color-secondary heading-margin-lg' }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+<section>
+  <div class="container bg-secondary padding-y-3xl padding-y-lg-5xl ">
+    <div class="row">
+      <div class="col text-center d-flex flex-column align-items-center row-gap-xl">
+        <h3 class="display-xs">{{ "Certifierade" | t }}</h3>
+        <div class="certified-logos d-flex column-gap-2xl">
+          <img
+            src="https://d1da7yrcucvk6m.cloudfront.net/sites/526/media/1215206_small_1fe21bb276b68d8b1423f725706652a4.webp?1726754219"
+            height="100" width="96" alt="FSC Logga">
+          <img src="https://d1da7yrcucvk6m.cloudfront.net/sites/526/media/1215207_small_PEFC_Logo_1.webp?1726754221"
+               alt="PEFC Logga">
+        </div>
+
+        <p
+          class="text-secondary">{{ "Vi är medlemmar i Pancert AB:s gruppcertifikat för spårbarhet CoC för FSC® (FSC-CO89427) och PEFC (PEFC/05-32-07/569." | t }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% include 'new_footer' %}

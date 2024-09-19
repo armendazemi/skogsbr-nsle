@@ -1,0 +1,54 @@
+</main>
+
+<footer class="bg-brand-section-dark padding-y-3xl padding-y-lg-5xl mt-auto d-block">
+  <div class="container">
+    <div class="row row-gap-xl">
+      <div class="col-lg-4 d-flex flex-column row-gap-xl align-items-start">
+        <div class="d-flex flex-column row-gap-sm align-items-start">
+          <div class="footer-logo-wrapper padding-sm">
+            <img src="https://d1da7yrcucvk6m.cloudfront.net/sites/526/media/1196324_small_logo-white.webp?1726653634"
+                 alt="Logo"
+                 height="116"
+                 width="144"
+                 class="nav-logo--footer">
+          </div>
+        </div>
+
+        {{ "footer-contact-details" | global_editable: class: 'text-white white-links d-flex flex-column row-gap-sm footer-links w-100 inline-flex-links' }}
+      </div>
+
+
+      <div class="col-lg-8">
+        <div class="row row-gap-xl justify-content-end">
+          <div class="col-lg-6 col-xl-3 d-flex flex-column row-gap-sm align-items-start">
+            {{ 'header-link-1' | global_editable: class: 'text-sm-all-caps text-white w-100' }}
+            {{ 'header-links-1' | global_editable: class: 'white-links w-100 text-white d-flex flex-column row-gap-sm justify-content-start' }}
+          </div>
+
+          <div class="col-lg-6 col-xl-3 d-flex flex-column row-gap-sm align-items-start">
+            {{ 'header-link-2' | global_editable: class: 'text-sm-all-caps text-white w-100' }}
+            {{ 'header-links-2' | global_editable: class: 'white-links w-100 text-white d-flex flex-column row-gap-sm justify-content-start' }}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-top-2xl margin-top-lg-4xl">
+      <div class="col-auto">
+        <span class="text-white">© Skogsbränsle {{ 'now' | date: '%Y' }}</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="{{ 'component_import.js' | template_path }}?{{ version }}" type="module"></script>
+
+
+</body>
+</html>

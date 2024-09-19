@@ -1,0 +1,83 @@
+<nav class="d-lg-none bg-brand-section-dark">
+
+
+  <div class="container padding-y-sm">
+    <div class="row align-items-center justify-content-between">
+
+      <div class="col-auto">
+        <a href="/" class="d-lg-none">
+          <img class="nav-logo--mobile"
+               src="https://d1da7yrcucvk6m.cloudfront.net/sites/526/media/1196324_small_logo-white.webp?1726653634"
+               height="77" width="95" alt="">
+        </a>
+      </div>
+
+
+      <div class="col-auto">
+        <toggle-button toggle-attributes="data-modal-action:open,close" class="d-lg-none">
+          <button type="button" class="icon-button d-lg-none"
+                  aria-label="{{ "Öppna meny" | t }}" data-modal-overlay="false"
+                  aria-expanded="false" aria-haspopup="true" aria-controls="mobile-menu"
+                  data-modal-action="open" data-modal-element="#mobile-menu">
+            <span class="material-symbols-rounded text-white">menu</span>
+            <span class="material-symbols-rounded d-none text-white">close</span>
+          </button>
+        </toggle-button>
+      </div>
+
+
+    </div>
+  </div>
+
+  <modal-component id="mobile-menu">
+    <ul class="main-menu--mobile padding-y-lg padding-x-sm list-unstyled">
+
+      <accordion-component>
+        <li class="mobile-nav-item">
+          <button type="button"
+                  class="w-100 black-link align-items-center justify-content-between fw-semi padding-x-0 padding-y-sm">
+            {{ "Sälja skogsbränsle" | t }}
+            <span class="material-symbols-rounded sm">keyboard_arrow_down</span>
+          </button>
+          <div class="dropdown bg-secondary radius-sm ">
+            <ul class="wrapper padding-y-sm list-unstyled">
+
+              <li class="mobile-nav-item">
+                <a href="/salja-skogsflis"
+                   class="black-link fw-semi padding-sm">{{ "Sälja skogsflis" | t }}</a>
+              </li>
+
+              {% for item in site.all_pages %}
+                {% if item.id == 39599 %}
+                  {% for childpage in item.children %}
+                    <li class="mobile-nav-item">
+                      <a href="{{ childpage.url }}"
+                         class="black-link fw-semi text-decoration-none padding-sm">{{ childpage.title }}</a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      </accordion-component>
+
+      <li class="mobile-nav-item">
+        <a href="/tjanster"
+           class="black-link fw-semi padding-y-sm">{{ "Våra tjänster" | t }}</a>
+      </li>
+
+      <li class="mobile-nav-item">
+        <a href="/om-oss"
+           class="black-link fw-semi padding-y-sm">{{ "Om oss" | t }}</a>
+      </li>
+
+      <li class="mobile-nav-item">
+        <a href="/kontakt"
+           class="black-link fw-semi padding-y-sm">{{ "Kontakta oss" | t }}</a>
+      </li>
+
+    </ul>
+  </modal-component>
+
+</nav>

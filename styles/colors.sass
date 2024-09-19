@@ -1,0 +1,96 @@
+//--------------------------
+// Primitive Color Variables
+// --------------------------
+
+// Neutral Colors
+$white: #fff
+$neutral-100: #F3F4F6
+$neutral-400: #9DA4AE
+$neutral-600: #4D5761
+$neutral-800: #3F444B
+$neutral-950: #22262A
+
+// Primary Colors
+$primary-orange-500:#D7531F
+$primary-orange-400: #E77436
+$primary-yellow-500: #F4AA3B
+$primary-yellow-400: #F6BC53
+
+// Secondary Colors
+$secondary-900: #646569
+
+// System Colors
+$red-600: #DC3545
+
+// Overlay & Transparency
+$alpha-black-20: rgba(37, 37, 39, 0.20)
+$alpha-black-40: rgba(37, 37, 39, 0.40)
+$alpha-black-60: rgba(37, 37, 39, 0.60)
+
+$alpha-white-60: rgba(255, 255, 255, 0.60)
+$alpha-white-80: rgba(255, 255, 255, 0.8)
+
+//--------------------------
+// Semantic Color Variables
+// --------------------------
+
+// Text Colors
+$text-primary: $neutral-950
+$text-secondary: $neutral-800
+$text-tertiary: $neutral-600
+$text-white: $white
+$text-brand-default: $primary-yellow-500
+$text-disabled: $neutral-400
+
+$text-colors: (primary: $text-primary, secondary: $text-secondary, tertiary: $text-tertiary, white: $text-white, brand-default: $text-brand-default, disabled: $text-disabled)
+@each $name, $value in $text-colors
+  .text-#{$name}
+    color: $value !important
+
+
+// Foreground
+$foreground-white: $white
+$foreground-primary: $neutral-950
+$foreground-secondary: $neutral-800
+$foreground-tertiary: $neutral-600
+$foreground-disabled: $neutral-400
+
+// Background
+$background-default: $white
+$background-secondary: $neutral-100
+$background-hover-light: $alpha-white-80
+$background-disabled: $neutral-100
+$background-brand-section-dark: $neutral-950
+
+$background-yellow-default: $primary-yellow-500
+$background-brand-hover: $primary-yellow-400
+$background-orange-default: $primary-orange-500
+$background-orange-hover: $primary-orange-400
+$background-section-dark: $neutral-950
+$background-section-brand: $primary-yellow-500
+
+// Border
+$border-primary: $neutral-400
+$border-hover: $neutral-950
+$border-on-brand-default: $neutral-950
+$border-on-brand-hover: $neutral-600
+$border-brand: $primary-yellow-500
+$border-focused-black: $neutral-950
+$border-focused-system: #2493D8
+$border-white: $white
+
+
+// System/Error
+$system-background-error: $red-600
+$system-border-error: $red-600
+$system-text-error: $red-600
+
+// Shadows
+.shadow-lg
+  box-shadow: 0px 8px 24px 0px rgba(16, 24, 40, 0.08), 0px 4px 8px 0px rgba(16, 24, 40, 0.03) !important
+
+
+$bg-colors: (default: $background-default, secondary: $background-secondary, hover-light: $background-hover-light, disabled: $background-disabled, brand-section-dark: $background-brand-section-dark, yellow-default: $background-yellow-default, brand-hover: $background-brand-hover, orange-default: $background-orange-default, orange-hover: $background-orange-hover, section-dark: $background-section-dark, section-brand: $background-section-brand, system-background-error: $system-background-error)
+@each $name, $value in $bg-colors
+  .bg-#{$name}
+    background-color: $value !important

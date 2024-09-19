@@ -1,0 +1,90 @@
+//--------------------------
+// TYPOGRAPHY
+// --------------------------
+$font-heading: "Manrope", sans-serif
+$font-body: "Manrope", sans-serif
+
+// Mixins
+@mixin fontSizePxToRem($value)
+  $remValue: $value / 16
+  font-size: $remValue + rem
+
+$weights: (light: 300, regular: 400, medium: 500, semi: 600, bold: 700)
+@each $weight, $value in $weights
+  .fw-#{$weight}
+    font-weight: $value !important
+
+// Base
+*
+  font-family: $font-body
+
+h1, h2, h3, h4, h5, h6
+  font-family: $font-heading
+  font-weight: 800
+
+  *
+    font-family: $font-heading
+    font-weight: 800
+
+// Headings
+
+.display-lg
+  @include fontSizePxToRem(32)
+  font-weight: 800
+  line-height: 120%
+  @media (min-width: 992px)
+    @include fontSizePxToRem(40)
+
+.display-md
+  @include fontSizePxToRem(28)
+  font-weight: 800
+  line-height: 120%
+  @media (min-width: 992px)
+    @include fontSizePxToRem(32)
+
+.display-sm
+  @include fontSizePxToRem(24)
+  font-weight: 800
+  line-height: 130%
+  @media (min-width: 992px)
+    @include fontSizePxToRem(28)
+
+.display-xs
+  @extend .display-xxs
+  @media (min-width: 992px)
+    @include fontSizePxToRem(24)
+
+.display-xxs
+  font-weight: 800
+  line-height: 140%
+  @include fontSizePxToRem(20)
+
+// Buttons
+.button-lg
+  @include fontSizePxToRem(16)
+
+.button-sm
+  @include fontSizePxToRem(14)
+
+.subtitle-1
+  @include fontSizePxToRem(18)
+  font-weight: 800
+
+.subtitle-2
+  @include fontSizePxToRem(16)
+  font-weight: 800
+
+// Specials
+.text-sm-all-caps
+  text-transform: uppercase
+  letter-spacing: .56px
+  @include fontSizePxToRem(14)
+
+//Text
+$body-text-sizes: (lg: 20, md: 16, sm: 14, xs: 12)
+@each $size, $value in $body-text-sizes
+  .text-#{$size}
+    @include fontSizePxToRem($value)
+
+
+

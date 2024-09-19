@@ -1,0 +1,337 @@
+@import 'colors'
+@import 'typography'
+@import 'spacings_radius'
+@import 'ui_elements'
+
+
+// --------------------------
+// COMPONENTS
+// --------------------------
+modal-component
+  display: none
+  position: fixed
+  z-index: 1000
+  opacity: 0
+  transition: all 0.3s ease-in-out
+
+  &.open
+    opacity: 1
+
+.overlay
+  display: none
+  position: fixed
+  opacity: 0
+  z-index: 999
+  inset: 0
+  background: rgba(0, 0, 0, .20)
+  transition: opacity 300ms ease-out
+
+  &.open
+    opacity: 1
+
+accordion-component
+  .dropdown
+    display: none
+    height: 0
+    overflow: hidden
+    transition: all 300ms ease
+    //padding-bottom: $spacing-sm
+
+    &.close
+      height: 0 !important
+      padding: 0
+
+
+  .material-symbols-rounded
+    transition: transform 0.3s ease-in-out
+
+  &:has(.open)
+    max-height: 3000px
+
+    .material-symbols-rounded
+      transform: rotate(180deg)
+
+
+// --------------------------
+// GLOBAL
+// --------------------------
+html, body
+  height: 100%
+  scroll-behavior: smooth
+
+body
+  overflow-x: hidden
+  display: flex
+  flex-direction: column
+  background-color: $background-default
+  color: $text-primary
+
+
+header
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 10
+  @media (min-width: 992px)
+    position: absolute
+
+img
+  width: 100%
+
+button
+  *
+    pointer-events: none
+
+
+h1, h2, h3, h4, h5, h6, p
+  margin-bottom: 0
+
+
+.material-symbols-rounded.sm
+  font-size: 20px
+
+.page-breadcrumb__item
+  display: flex
+  align-items: center
+
+  &.active
+    text-decoration-thickness: 2px
+
+
+// --------------------------
+// HELPERS
+// --------------------------
+.display-lg-heading
+  h1, h2, h3, h4, h5
+    @extend .display-lg
+
+.display-md-heading
+  h1, h2, h3, h4, h5
+    @extend .display-md
+
+.display-sm-heading
+  h1, h2, h3, h4, h5
+    @extend .display-sm
+
+.display-xs-heading
+  h1, h2, h3, h4, h5
+    @extend .display-xs
+
+.display-subtitle-1-heading
+  h1, h2, h3, h4, h5
+    @extend .subtitle-1
+
+.display-subtitle-2-heading
+  h1, h2, h3, h4, h5
+    @extend .subtitle-2
+
+.text-xl-p
+  p
+    @include fontSizePxToRem(20)
+
+.text-lg-p
+  p
+    @extend .text-lg
+
+.text-md-p
+  p
+    @extend .text-md
+
+.p-semi
+  p
+    font-weight: 600
+
+.p-light
+  p
+    font-weight: 300
+
+.p-color-secondary
+  p
+    color: $text-secondary
+
+.family-heading
+  font-family: $font-heading
+
+  *
+    font-family: $font-heading
+
+.brand-button-yellow-editable
+  a
+    @extend .brand-button-yellow
+
+.brand-button-orange-editable
+  a
+    @extend .brand-button-orange
+
+//.brand-buttons
+//  p:has(a)
+//    a
+//      @extend .brand-button-secondary
+//
+//  p:first-of-type
+//    a
+//      @extend .brand-button-primary
+//
+//.neutral-buttons
+//  p:has(a)
+//    a
+//      @extend .neutral-button-secondary
+//
+//  p:first-of-type
+//    a
+//      @extend .neutral-button-primary
+//
+//.neutral-button-primary-editable
+//  a
+//    @extend .neutral-button-primary
+//
+//.neutral-button-secondary-editable
+//  a
+//    @extend .neutral-button-secondary
+
+
+.inline-flex-links
+  a
+    display: inline-flex !important
+
+.black-links
+  a
+    @extend .black-link
+
+.white-links
+  a
+    @extend .white-link
+
+.border-white
+  border: 1px solid $white
+
+.aspect-ratio-3x2
+  aspect-ratio: 3/2
+
+.aspect-ratio-1x1
+  aspect-ratio: 1/1
+
+.w-fit-content
+  width: fit-content
+
+.truncate-text-2
+  display: -webkit-box
+  -webkit-line-clamp: 2
+  -webkit-box-orient: vertical
+  overflow: hidden
+  text-overflow: ellipsis
+
+.heading-margin-lg
+  h1, h2, h3, h4, h5
+    margin: $spacing-lg 0
+
+    &:first-child
+      margin-top: 0
+
+// --------------------------
+// HEADER
+// --------------------------
+.nav-logo
+  img
+    height: 48px
+
+#mobile-menu
+  display: none
+  position: fixed
+  background-color: $background-default
+  left: 0
+  top: 101px
+  width: 100%
+  height: calc(100dvh - 80px)
+  overflow-y: auto
+  transition: opacity 0.3s ease-in-out
+
+.desktop-dropdown
+  position: absolute
+  white-space: nowrap
+  min-width: 300px
+  left: 0
+  background-color: white
+  box-shadow: 0px 8px 24px 0px rgba(16, 24, 40, 0.08), 0px 4px 8px 0px rgba(16, 24, 40, 0.03)
+
+.desktop-nav
+  grid-template-columns: repeat(5, minmax(121px, 1fr))
+  align-items: center
+  column-gap: $spacing-sm
+
+  > *
+    justify-self: center
+
+  > :first-child
+    justify-self: end
+
+  > :last-child
+    justify-self: start
+
+.nav-logo--desktop
+  height: 121px
+  width: 150px
+
+// --------------------------
+// START
+// --------------------------
+.hero-slide
+  background: black
+
+.hero-slide__image
+  object-fit: cover
+  aspect-ratio: auto
+  max-height: unset
+  height: 760px
+  opacity: .6
+  @media (min-width: 992px)
+    aspect-ratio: 1.742
+    max-height: 700px
+
+.hero-content-container
+  padding-top: 80px
+  position: absolute
+  inset: 0
+  z-index: 1
+  color: $white
+
+.callout-grid
+  display: grid
+  grid-auto-flow: row
+
+  @media (min-width: 992px)
+    grid-auto-columns: 1fr 1fr
+    grid-auto-flow: column
+    align-items: center
+
+.callout-image
+  img
+    width: 100%
+    aspect-ratio: 1.5
+    object-fit: cover
+    border-radius: $radius-xs
+
+.heading-office-icon,
+.heading-terminal-icon
+  h1, h2, h3, h4, h5, h6
+    display: inline-flex
+    align-items: center
+
+    &::before
+      content: ""
+      display: inline-block
+      width: 24px
+      height: 24px
+      margin-right: 8px
+
+.heading-office-icon
+  h1, h2, h3, h4, h5, h6
+    &::before
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 21V13.6C9 13.0399 9 12.7599 9.109 12.546C9.20487 12.3578 9.35785 12.2049 9.54601 12.109C9.75993 12 10.04 12 10.6 12H13.4C13.9601 12 14.2401 12 14.454 12.109C14.6422 12.2049 14.7951 12.3578 14.891 12.546C15 12.7599 15 13.0399 15 13.6V21M2 9.5L11.04 2.72C11.3843 2.46181 11.5564 2.33271 11.7454 2.28294C11.9123 2.23902 12.0877 2.23902 12.2546 2.28295C12.4436 2.33271 12.6157 2.46181 12.96 2.72L22 9.5M4 8V17.8C4 18.9201 4 19.4802 4.21799 19.908C4.40974 20.2843 4.7157 20.5903 5.09202 20.782C5.51985 21 6.0799 21 7.2 21H16.8C17.9201 21 18.4802 21 18.908 20.782C19.2843 20.5903 19.5903 20.2843 19.782 19.908C20 19.4802 20 18.9201 20 17.8V8L13.92 3.44C13.2315 2.92361 12.8872 2.66542 12.5091 2.56589C12.1754 2.47804 11.8246 2.47804 11.4909 2.56589C11.1128 2.66542 10.7685 2.92361 10.08 3.44L4 8Z" stroke="%23F4AA3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+      background-size: contain
+
+.heading-terminal-icon
+  h1, h2, h3, h4, h5, h6
+    &::before
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6.94379C18 7.28106 17.8837 7.57396 17.651 7.82248C17.4183 8.05325 17.123 8.16864 16.7651 8.16864H13.9463C13.7136 8.16864 13.5973 8.28402 13.5973 8.51479V18.7751C13.5973 19.1124 13.472 19.4053 13.2215 19.6538C12.9888 19.8846 12.7025 20 12.3624 20H11.6644C11.3244 20 11.0291 19.8846 10.7785 19.6538C10.5459 19.4053 10.4295 19.1124 10.4295 18.7751V8.51479C10.4295 8.28402 10.3132 8.16864 10.0805 8.16864H7.2349C6.89485 8.16864 6.59955 8.05325 6.34899 7.82248C6.11633 7.57396 6 7.28106 6 6.94379V6.22485C6 5.86982 6.11633 5.57692 6.34899 5.34615C6.59955 5.11538 6.89485 5 7.2349 5H16.7651C17.123 5 17.4183 5.11538 17.651 5.34615C17.8837 5.57692 18 5.86982 18 6.22485V6.94379Z" fill="%23F4AA3B"/></svg>')
+      background-size: contain
