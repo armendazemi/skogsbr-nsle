@@ -1,0 +1,236 @@
+@import 'colors'
+@import 'typography'
+@import 'spacings_radius'
+//--------------------------
+// Buttons
+// --------------------------
+
+button
+  border: none
+  cursor: pointer
+  transition: all linear 200ms
+
+
+%button-base
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: $spacing-xs
+  height: 48px
+  padding: 0 $spacing-lg
+  border-radius: $radius-xxs
+  border: 1px solid transparent
+  margin: 0
+  @include fontSizePxToRem(16)
+  font-weight: 600
+  text-decoration: none
+  transition: 200ms all linear
+
+.brand-button-yellow
+  @extend %button-base
+  color: $text-primary
+  background-color: $background-yellow-default
+
+  @media (hover: hover)
+    &:hover
+      background-color: $background-brand-hover
+
+  &:disabled
+    background-color: $background-disabled
+    color: $text-disabled
+    cursor: not-allowed
+
+
+.brand-button-orange
+  @extend %button-base
+  background-color: $background-orange-default
+  color: $white
+
+  @media (hover: hover)
+    &:hover
+      background-color: $background-orange-hover
+
+
+  &:disabled
+    background-color: $background-default
+    color: $text-disabled
+
+
+.neutral-button-primary
+  @extend %button-base
+  background-color: $background-default
+  color: $text-primary
+
+  @media (hover: hover)
+    &:hover
+      background-color: $background-hover-light
+
+  &:disabled
+    background-color: $background-disabled
+    color: $text-disabled
+    cursor: not-allowed
+
+
+.neutral-button-secondary
+  @extend %button-base
+  background-color: transparent
+  color: $text-primary
+  border: 1px solid $border-on-brand-default
+
+  @media (hover: hover)
+    &:hover
+      background: rgba(0, 0, 0, 0.10)
+      border: 2px solid $border-on-brand-hover
+
+  &:disabled
+    color: $text-disabled
+    cursor: not-allowed
+
+
+.icon-button
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: transparent
+  height: 48px
+  width: 48px
+
+
+// --------------------------
+// LINKS TABS & BREADCRUMBS$
+// --------------------------
+%link-base
+  display: flex
+  gap: $spacing-xs
+  background-color: transparent
+  transition: 200ms all linear
+  text-underline-offset: 2px
+  text-decoration: underline solid 1px transparent
+
+  @media (hover: hover)
+    &:hover
+        text-decoration-color: currentColor
+
+  &:active
+    text-decoration-color: currentColor
+
+
+  &:disabled
+    color: $text-disabled
+    cursor: not-allowed
+
+  &.small
+    @include fontSizePxToRem(14)
+    height: 20px
+
+  &.medium
+    @include fontSizePxToRem(16)
+    height: 24px
+
+
+.black-link
+  @extend %link-base
+  color: $text-primary
+
+.white-link
+  @extend %link-base
+  color: $white
+
+// --------------------------
+// INPUTS
+// --------------------------
+
+%base-input
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0 $spacing-sm
+  height: 48px
+  min-width: 0
+  border-radius: $spacing-2xs !important
+  border: 1px solid $border-primary
+  color: $text-primary
+  outline: none
+  box-shadow: unset !important
+  transition: 200ms border-color linear, 200ms color linear, 200ms background-color linear
+
+  &::placeholder
+    color: $text-tertiary
+
+  &:focus-visible,
+  &:active
+    outline: 2px solid $border-focused-system !important
+
+  &.error
+    border-color: $system-border-error !important
+
+
+  &:disabled
+    background-color: $background-disabled
+    border-color: $text-disabled
+    color: $text-disabled
+    cursor: not-allowed
+
+.input-default
+  @extend %base-input
+  background-color: $background-default
+
+.search-input
+  padding-left: $spacing-3xl
+  padding-right: $spacing-4xl
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="%23030712" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+  background-repeat: no-repeat
+  background-position: $spacing-sm center
+
+  &:focus-visible,
+  &:active
+    border-color: $foreground-primary
+
+.search-input-clear
+  display: none
+  position: absolute
+  right: 6px
+  opacity: 0
+  transition: 200ms opacity linear
+
+  &.open
+    opacity: 1
+
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+  display: none
+
+.checkbox-default
+  height: 20px
+  width: 20px
+  flex-shrink: 0
+  flex-grow: 0
+  padding: 0 !important
+  border-radius: $radius-xs
+  border-color: $border-primary
+  accent-color: $neutral-950
+
+
+.radio-default
+  height: 20px
+  width: 20px
+  flex-shrink: 0
+  border-radius: $radius-full
+  accent-color: $neutral-950
+
+// --------------------------
+// SCROLLBAR
+// --------------------------
+
+::-webkit-scrollbar
+  width: 14px
+
+
+::-webkit-scrollbar-thumb
+  border: 4px solid rgba(0, 0, 0, 0)
+  background-clip: padding-box
+  border-radius: 9999px
+  background-color: $background-yellow-default

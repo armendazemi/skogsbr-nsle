@@ -1,0 +1,27 @@
+{% include 'new_header' %}
+
+<swiper-slider slides="1" autoplay="true" delay="6000" loop="true" spaceBetweenDesktop="0" spaceBetween="0" speed="1200">
+  <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+      {% for item in lists.start-hero.rows %}
+        <div class="swiper-slide hero-slide">
+          <img class="hero-slide__image" src="{{ item.bild-mobil }}" srcset="{{ item.bild }} 992w , {{ item.bild-mobil }} 768w"
+               sizes="(max-width: 768px) 768px, 992px" alt="">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+</swiper-slider>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row">
+
+    </div>
+  </div>
+</section>
+
+
+{% include 'new_footer' %}

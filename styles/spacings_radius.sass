@@ -1,0 +1,166 @@
+//--------------------------
+// Spacings
+// --------------------------
+$spacing-0: 0
+$spacing-2xs: 4px
+$spacing-xs: 8px
+$spacing-sm: 12px
+$spacing-base: 16px
+$spacing-lg: 24px
+$spacing-xl: 32px
+$spacing-2xl: 48px
+$spacing-3xl: 64px
+$spacing-4xl: 96px
+$spacing-5xl: 128px
+$spacing-6xl: 144px
+$spacing-7xl: 192px
+
+$spacings: (0: 0, 4xs: 2px, 3xs: 4px, 2xs: 6px, xs: 8px, sm: 12px, base: 16px, lg: 24px, xl: 32px, 2xl: 48px, 3xl: 64px, 4xl: 96px, 5xl: 128px, 6xl: 144px, 7xl: 192px)
+
+
+$breakpoints: (sm: 568px, md: 768px, lg: 992px, xl: 1200px)
+
+@each $size, $value in $spacings
+  .gap-#{$size}
+    gap: $value !important
+
+  .row-gap-#{$size}
+    row-gap: $value !important
+
+  .column-gap-#{$size}
+    column-gap: $value !important
+
+  .padding-#{$size}
+    padding: $value !important
+
+  .padding-top-#{$size}
+    padding-top: $value !important
+
+  .padding-right-#{$size}
+    padding-right: $value !important
+
+  .padding-bottom-#{$size}
+    padding-bottom: $value !important
+
+  .padding-left-#{$size}
+    padding-left: $value !important
+
+  .padding-x-#{$size}
+    padding-left: $value !important
+    padding-right: $value !important
+
+  .padding-y-#{$size}
+    padding-top: $value !important
+    padding-bottom: $value !important
+
+  .margin-#{$size}
+    margin: $value !important
+
+  .margin-top-#{$size}
+    margin-top: $value !important
+
+  .margin-right-#{$size}
+    margin-right: $value !important
+
+  .margin-bottom-#{$size}
+    margin-bottom: $value !important
+
+  .margin-left-#{$size}
+    margin-left: $value !important
+
+  .margin-x-#{$size}
+    margin-left: $value !important
+    margin-right: $value !important
+
+  .margin-y-#{$size}
+    margin-top: $value !important
+    margin-bottom: $value !important
+
+// Breakpoint classes
+@each $breakpoint, $breakpoint-value in $breakpoints
+  $breakpoint-name: ''
+
+  @if $breakpoint == sm
+    $breakpoint-name: 'sm'
+  @else if $breakpoint == md
+    $breakpoint-name: 'md'
+  @else if $breakpoint == lg
+    $breakpoint-name: 'lg'
+
+  @if $breakpoint-name != ''
+    @media (min-width: $breakpoint-value)
+      @each $size, $value in $spacings
+        .gap-#{$breakpoint-name}-#{$size}
+          gap: $value !important
+
+        .row-gap-#{$breakpoint-name}-#{$size}
+          row-gap: $value !important
+
+        .column-gap-#{$breakpoint-name}-#{$size}
+          column-gap: $value !important
+
+        .padding-#{$breakpoint-name}-#{$size}
+          padding: $value !important
+
+        .padding-top-#{$breakpoint-name}-#{$size}
+          padding-top: $value !important
+
+        .padding-right-#{$breakpoint-name}-#{$size}
+          padding-right: $value !important
+
+        .padding-bottom-#{$breakpoint-name}-#{$size}
+          padding-bottom: $value !important
+
+        .padding-left-#{$breakpoint-name}-#{$size}
+          padding-left: $value !important
+
+        .padding-x-#{$breakpoint-name}-#{$size}
+          padding-left: $value !important
+          padding-right: $value !important
+
+        .padding-y-#{$breakpoint-name}-#{$size}
+          padding-top: $value !important
+          padding-bottom: $value !important
+
+        .margin-#{$breakpoint-name}-#{$size}
+          margin: $value !important
+
+        .margin-top-#{$breakpoint-name}-#{$size}
+          margin-top: $value !important
+
+        .margin-right-#{$breakpoint-name}-#{$size}
+          margin-right: $value !important
+
+        .margin-bottom-#{$breakpoint-name}-#{$size}
+          margin-bottom: $value !important
+
+        .margin-left-#{$breakpoint-name}-#{$size}
+          margin-left: $value !important
+
+        .margin-x-#{$breakpoint-name}-#{$size}
+          margin-left: $value !important
+          margin-right: $value !important
+
+        .margin-y-#{$breakpoint-name}-#{$size}
+          margin-top: $value !important
+          margin-bottom: $value !important
+
+
+// --------------------------
+// Radius
+// --------------------------
+$radiuses: (xxs: 2px, xs: 4px, sm: 8px, md: 12px, lg: 16px, full: 9999px)
+@each $size, $value in $radiuses
+  .radius-#{$size}
+    border-radius: $value !important
+
+$radius-xxs: 2px
+$radius-xs: 4px
+$radius-sm: 8px
+$radius-md: 12px
+$radius-lg: 16px
+$radius-full: 9999px
+
+
+
+
