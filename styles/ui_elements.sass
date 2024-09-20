@@ -18,7 +18,7 @@ button
   gap: $spacing-xs
   height: 48px
   padding: 0 $spacing-lg
-  border-radius: $radius-xxs
+  border-radius: $radius-xs
   border: 1px solid transparent
   margin: 0
   @include fontSizePxToRem(16)
@@ -80,7 +80,6 @@ button
   @media (hover: hover)
     &:hover
       background: rgba(0, 0, 0, 0.10)
-      border: 2px solid $border-on-brand-hover
 
   &:disabled
     color: $text-disabled
@@ -174,6 +173,7 @@ button
 .input-default
   @extend %base-input
   background-color: $background-default
+  width: 100%
 
 .search-input
   padding-left: $spacing-3xl

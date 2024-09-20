@@ -1,0 +1,1289 @@
+{% assign headerBg = 'bg-brand-section-dark' %}
+
+{% include 'new_header' %}
+<top-element class="padding-y-xl padding-y-lg-3xl">
+  <div class="container">
+
+    <div id="main" class="register default-page row justify-content-center">
+      <div id="" class="content col-lg-10 ">
+        {{ 'registration' | page_editable }}
+
+
+        {% if request.params['Leverantör/säljare'] %}
+          <div class="print_item">
+            <h1>Kvitto</h1>
+            <div class="success noprint">Din begäran har skickats.</div>
+            <p class="noprint">Du kan nu <a href="#" id="print-form">skriva ut</a> denna sidan som kvitto på din
+              begäran.
+            </p>
+            <table>
+              <tbody>
+              <tr>
+                <td colspan="2">
+                  <a href="{{ request.params['static_map_url'] }}" target="_blank">
+                    <img
+                      src="{{ request.params['static_map_url'] }}"/>
+                  </a>
+                </td>
+              </tr>
+              <tr class="odd th">
+                <td class="odd first">
+                  <strong>Objektnamn:</strong>
+                </td>
+                <td class="even">{{ request.params['Objektnamn'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Anmälare:</strong>
+                </td>
+                <td class="even">{{ request.params['Anmälare'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Anmälare e-post:</strong>
+                </td>
+                <td class="even">{{ request.params['Anmälare e-post'] }}</td>
+              </tr>
+              {% assign size_certifiering = request.params['Certifiering'] | size %}
+              {% if size_certifiering > 0 %}
+                <tr class="odd">
+                  <td class="odd">
+                    <strong>Certifiering:</strong>
+                  </td>
+                  <td class="even">
+                    {% if size_certifiering == 1 %}
+                      {{ request.params['Certifiering'][0] }}
+                    {% else %}
+                      {{ request.params['Certifiering'][0] }}, {{ request.params['Certifiering'][1] }}
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endif %}
+              <tr class="even">
+                <td class="odd">
+                  <strong>Orderdatum:</strong>
+                </td>
+                <td class="even">{{ 'now' | date: '%F' }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Leverantör/Säljare:</strong>
+                </td>
+                <td class="even">{{ request.params['Leverantör/säljare'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Tel. leverantör:</strong>
+                </td>
+                <td class="even">{{ request.params['Leverantör tel'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Markägare:</strong>
+                </td>
+                <td class="even">{{ request.params['Markägare'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Tel. markägare:</strong>
+                </td>
+                <td class="even">{{ request.params['Markägare tel'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Kontaktperson:</strong>
+                </td>
+                <td class="even">{{ request.params['Kontaktperson'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Tel. kontaktperson:</strong>
+                </td>
+                <td class="even">{{ request.params['Kontaktperson tel'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Skotat av:</strong>
+                </td>
+                <td class="even">{{ request.params['Skotat av'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Skotat ÅÅMM:</strong>
+                </td>
+                <td class="even">{{ request.params['Skotat ÅÅMM'] }}</td>
+              </tr>
+              {% if request.params['Oskotat'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Oskotat:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Oskotat'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Avverkat ÅÅMM:</strong>
+                </td>
+                <td class="even">{{ request.params['Avverkat ÅÅMM'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Objektnr/Virkesordernr:</strong>
+                </td>
+                <td class="even">{{ request.params['Objektsnr/virkesordernr'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Sortiment:</strong>
+                </td>
+                <td class="even">{{ request.params['Sortiment'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Uppskattad volym, m<sup>3</sup>s:</strong>
+                </td>
+                <td class="even">{{ request.params['Uppskattad volym m3S'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Beskriv. 1 (t.ex. lövgrot):</strong>
+                </td>
+                <td class="even">{{ request.params['1 Beskrivning'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Antal vält 1:</strong>
+                </td>
+                <td class="even">{{ request.params['1 antal vält'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Lat./NorrSyd 1:</strong>
+                </td>
+                <td class="even">{{ request.params['1 lat'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Lon./ÖstVäst 1:</strong>
+                </td>
+                <td class="even">{{ request.params['1 lon'] }}</td>
+              </tr>
+              {% if request.params['Flisning från bilväg'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning från bilväg 1:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Flisning från bilväg'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['flisning med Albach1'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med Albach 1:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med Albach1'] }}</td>
+                </tr>
+              {% endif %}
+              {% if request.params['flisning med traditionell lastbilshugg1'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med traditionell lastbilshugg 1:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med traditionell lastbilshugg1'] }}</td>
+                </tr>
+
+              {% endif %}
+              {% if request.params['flisning med skotarhugg1'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med skotarhugg 1:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Flisning med skotarhugg1'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['1 täckt'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Täckt Position 1:</strong>
+                  </td>
+                  <td class="even">{{ request.params['1 täckt'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Beskriv. 2 (t.ex. lövgrot):</strong>
+                </td>
+                <td class="even">{{ request.params['2 Beskrivning'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Antal vält 2:</strong>
+                </td>
+                <td class="even">{{ request.params['2 antal vält'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Lat./NorrSyd 2:</strong>
+                </td>
+                <td class="even">{{ request.params['2 lat'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Lon./ÖstVäst 2:</strong>
+                </td>
+                <td class="even">{{ request.params['2 lon'] }}</td>
+              </tr>
+              {% if request.params['Flisning från bilväg2'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning från bilväg 2:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Flisning från bilväg2'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['flisning med Albach2'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med Albach 2:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med Albach2'] }}</td>
+                </tr>
+              {% endif %}
+              {% if request.params['flisning med traditionell lastbilshugg2'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med traditionell lastbilshugg2:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med traditionell lastbilshugg2'] }}</td>
+                </tr>
+
+              {% endif %}
+              {% if request.params['flisning med skotarhugg2'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med skotarhugg 2:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med skotarhugg2'] }}</td>
+                </tr>
+              {% endif %}
+
+
+              {% if request.params['2 täckt'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Täckt Position 2:</strong>
+                  </td>
+                  <td class="even">{{ request.params['2 täckt'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Beskriv. 3 (t.ex. lövgrot):</strong>
+                </td>
+                <td class="even">{{ request.params['3 Beskrivning'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Antal vält 3:</strong>
+                </td>
+                <td class="even">{{ request.params['3 antal vält'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Lat./NorrSyd 3:</strong>
+                </td>
+                <td class="even">{{ request.params['3 lat'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Lon./ÖstVäst 3:</strong>
+                </td>
+                <td class="even">{{ request.params['3 lon'] }}</td>
+              </tr>
+              {% if request.params['Flisning från bilväg3'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning från bilväg 3:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Flisning från bilväg3'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['flisning med Albach3'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med Albach 3:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med Albach3'] }}</td>
+                </tr>
+              {% endif %}
+              {% if request.params['flisning med traditionell lastbilshugg3'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med traditionell lastbilshugg 3:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med traditionell lastbilshugg3'] }}</td>
+                </tr>
+
+              {% endif %}
+              {% if request.params['flisning med skotarhugg3'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med skotarhugg 3:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med skotarhugg3'] }}</td>
+                </tr>
+              {% endif %}
+
+
+
+              {% if request.params['3 täckt'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Täckt Position 3:</strong>
+                  </td>
+                  <td class="even">{{ request.params['3 täckt'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Beskriv. 4 (t.ex. lövgrot):</strong>
+                </td>
+                <td class="even">{{ request.params['4 Beskrivning'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Antal vält 4:</strong>
+                </td>
+                <td class="even">{{ request.params['4 antal vält'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Lat./NorrSyd 4:</strong>
+                </td>
+                <td class="even">{{ request.params['4 lat'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Lon./ÖstVäst 4:</strong>
+                </td>
+                <td class="even">{{ request.params['4 lon'] }}</td>
+              </tr>
+              {% if request.params['flisning från bilväg4'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning från bilväg 4:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning från bilväg4'] }}</td>
+                </tr>
+              {% endif %}
+
+
+              {% if request.params['flisning med Albach4'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med Albach 4:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med Albach4'] }}</td>
+                </tr>
+              {% endif %}
+              {% if request.params['flisning med traditionell lastbilshugg4'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med traditionell lastbilshugg4:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med traditionell lastbilshugg4'] }}</td>
+                </tr>
+
+              {% endif %}
+              {% if request.params['flisning med skotarhugg4'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med skotarhugg 4:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med skotarhugg4'] }}</td>
+                </tr>
+              {% endif %}
+
+
+              {% if request.params['4 täckt'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Täckt Position 4:</strong>
+                  </td>
+                  <td class="even">{{ request.params['4 täckt'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Beskriv. 5 (t.ex. lövgrot):</strong>
+                </td>
+                <td class="even">{{ request.params['5 Beskrivning'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Antal vält 5:</strong>
+                </td>
+                <td class="even">{{ request.params['5 antal vält'] }}</td>
+              </tr>
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Lat./NorrSyd 5:</strong>
+                </td>
+                <td class="even">{{ request.params['5 lat'] }}</td>
+              </tr>
+              <tr class="even">
+                <td class="odd">
+                  <strong>Lon./ÖstVäst 5:</strong>
+                </td>
+                <td class="even">{{ request.params['5 lon'] }}</td>
+              </tr>
+              {% if request.params['Flisning från bilväg5'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning från bilväg 5:</strong>
+                  </td>
+                  <td class="even">{{ request.params['Flisning från bilväg5'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['flisning med Albach5'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med Albach 5:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med Albach5'] }}</td>
+                </tr>
+              {% endif %}
+              {% if request.params['flisning med traditionell lastbilshugg5'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med traditionell lastbilshugg5:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med traditionell lastbilshugg5'] }}</td>
+                </tr>
+              {% endif %}
+
+              {% if request.params['flisning med skotarhugg5'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Flisning med skotarhugg 5:</strong>
+                  </td>
+                  <td class="even">{{ request.params['flisning med skotarhugg5'] }}</td>
+                </tr>
+              {% endif %}
+
+
+
+
+              {% if request.params['5 täckt'] %}
+                <tr class="even">
+                  <td class="odd">
+                    <strong>Täckt Position 5:</strong>
+                  </td>
+                  <td class="even">{{ request.params['5 täckt'] }}</td>
+                </tr>
+              {% endif %}
+              <tr class="odd">
+                <td class="odd">
+                  <strong>Övrigt (Adress, bankgiro, kontouppgifter m.m.):</strong>
+                </td>
+                <td class="even last">{{ request.params['Övrigt'] }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <script>
+            // window.onbeforeunload = function() { return "You work will be lost."; };
+            //window.location.hash="no-back-button";
+            //window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
+            //window.onhashchange=function(){window.location.hash="no-back-button";}
+          </script>
+        {% else %}
+          <form class="d-flex flex-column row-gap-lg justify-content-start" action="/sv/forms/registration"
+                data-wm3form="true" enctype="multipart/form-data" id="contact_form"
+                method="post" onsubmit="return updateHiddenFieldValues();">
+            <input type="hidden" name="wm3_form_data" value="params"/>
+            <input id="wm3_from" name="wm3_from" type="hidden" value="info@skogsbransle.se"/>
+            <input id="wm3_to" type="hidden" name="wm3_to" value=""/>
+            <input id="subject" name="subject" type="hidden"/>
+            <input id="static_map_url" name="static_map_url" type="hidden"/>
+            <fieldset class="fieldset_content" id="yourinfo">
+              <legend>Din information</legend>
+              <div class="col25">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="object_name">Objektnamn:</label>
+                <input class="textfield input-default" id="object_name"
+                       maxlength="150" name="Objektnamn"
+                       type="text"/>
+              </div>
+
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="sender_name">Anmälare:</label>
+                  <input class="textfield input-default" id="sender_name"
+                         maxlength="150" name="Anmälare"
+                         type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="sender_email">Anmälare e-post:</label>
+                  <input class="textfield input-default"
+                         id="sender_email"
+                         maxlength="150"
+                         name="Anmälare e-post"
+                         type="text"/>
+                </div>
+              </div>
+
+              <div class="col25">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="certification">Certifiering:</label>
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="input_container d-flex align-items-center column-gap-sm" for="certification_pefc">
+                      <input
+                        class="checkbox_certification checkbox-default" id="certification_pefc" name="Certifiering[]"
+                        type="checkbox"
+                        value="PEFC"/> <span class="checkmark">PEFC</span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <label class="input_container d-flex align-items-center column-gap-sm" for="certification_fsc">
+                      <input
+                        class="checkbox_certification checkbox-default" id="certification_fsc" name="Certifiering[]"
+                        type="checkbox"
+                        value="FSC"/> <span class="checkmark">FSC</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset_content" id="supplier_info">
+              <legend>Leverantörsinfo</legend>
+
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="supplier_name">Leverantör/Säljare: <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default" id="supplier_name" maxlength="150"
+                    name="Leverantör/säljare"
+                    type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="supplier_phone">Tel. leverantör:</label>
+                  <input class="textfield input-default"
+                         id="supplier_phone"
+                         maxlength="15"
+                         name="Leverantör tel"
+                         type="text"/>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="owner_name">Markägare:</label>
+                  <input class="textfield input-default" id="owner_name"
+                         maxlength="150" name="Markägare"
+                         type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="owner_phone">Tel. markägare:</label>
+                  <input class="textfield input-default"
+                         id="owner_phone"
+                         maxlength="15"
+                         name="Markägare tel"
+                         type="text"/>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset_content" id="contact_info">
+              <legend>Kontaktpersoner</legend>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="contact_name">Kontaktperson: <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default" id="contact_name" maxlength="150" name="Kontaktperson"
+                    type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="contact_phone">Tel. kontaktperson: <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default" id="contact_phone" maxlength="15" name="Kontaktperson tel"
+                    type="text"/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="sheet_name">Skotat av:</label>
+                  <input class="textfield input-default" id="sheet_name"
+                         maxlength="150" name="Skotat av"
+                         type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="sheet_date">Skotat ÅÅMM: <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input class="textfield required input-default" id="sheet_date" maxlength="150" name="Skotat ÅÅMM"
+                         type="text"/>
+                </div>
+              </div>
+              <div class="clear">
+                <label class="input_container d-flex align-items-center column-gap-sm" for="Oskotat">
+                  <input class="checkbox_sheeted checkbox-default"
+                         id="Oskotat"
+                         name="Oskotat[]" type="checkbox"
+                         value="Oskotat"/> <span
+                    class="checkmark">Oskotat</span>
+                </label>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="sheet_object_date">Avverkat ÅÅMM: <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default" id="sheet_object_date" maxlength="150" name="Avverkat ÅÅMM"
+                    type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs"
+                         for="sheet_object_number">Objektnr/Virkesordernr:</label>
+                  <input class="textfield input-default"
+                         id="sheet_object_number"
+                         maxlength="150"
+                         name="Objektsnr/virkesordernr"
+                         type="text"/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="range">Sortiment: <acronym class="required"
+                                                                                                   title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default" id="range" maxlength="150" name="Sortiment" type="text"/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="volume">Uppskattad volym, m<sup>3</sup>s:
+                    <acronym
+                      class="required"
+                      title="">*</acronym>
+                  </label>
+                  <input class="textfield input-default required" id="volume" maxlength="150"
+                         name="Uppskattad volym m3S"
+                         type="text"/>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset_content" id="position_info">
+              <legend>Positionsinfo</legend>
+              <div id="map_canvas">&nbsp;</div>
+              <div class="buttons">
+                <p class="clear">
+                  <button type="button" class="reset_markers neutral-button-secondary">Rensa positioner</button>
+                </p>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset_content" id="positions">
+              <legend>Positioner</legend>
+              <h3>Läge 1</h3>
+              <div class="buttons">
+                <button type="button" class="getMyPos brand-button-yellow" data-id="1">
+                  <span class="material-symbols-rounded">location_on</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  <span class="">Använd min position</span>
+                </button>
+                <button type="button" class="remove_marker" id="pos1_remove">Ta bort markör</button>
+              </div>
+              <div class="col20">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos1_name">Beskriv.1(t.ex. lövgrot):</label>
+                <input class="textfield input-default"
+                       id="pos1_name"
+                       maxlength="150"
+                       name="1 Beskrivning"
+                       type="text"/>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos1_amount">Antal vält 1:
+                  <acronym
+                    class="required"
+                    title="">*</acronym>
+                </label>
+                <input
+                  class="textfield required input-default" id="pos1_amount" maxlength="2" name="1 antal vält"
+                  type="text"/>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos1_lat">Lat./NorrSyd 1:
+                    <acronym class="required"
+                             title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default coord" id="pos1_lat" maxlength="150" name="1 lat"
+                    type="text"/>
+                  <input
+                    id="pos1_lat_type" name="1 lat typ" type="hidden" value=""/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos1_lon">Lon./ÖstVäst 1:
+                    <acronym class="required"
+                             title="">*</acronym>
+                  </label>
+                  <input
+                    class="textfield required input-default coord" id="pos1_lon" maxlength="150" name="1 lon"
+                    type="text"/>
+                  <input
+                    id="pos1_lon_type" name="1 lon typ" type="hidden" value=""/>
+                </div>
+              </div>
+              <div id="valt1" class="col20 options nyOption d-flex flex-column row-gap-sm align-items-start">
+
+                <label class="input_container" for="pos1cov">
+                  <input class="checkbox_pos1_covered checkbox-default" id="pos1cov" name="1 täckt[]" type="checkbox"
+                         value="Täckt"/>
+                  <span class="checkmark">Täckt</span>
+                </label>
+                <!--<a class="add_marker" href="" id="pos1_add">Lägg till markör</a>-->
+
+
+                <label class="input_container" for="flisning_med_Albach1">
+                  <input class="checkbox_flisning_med_Albach1 checkbox-default" id="flisning_med_Albach1"
+                         name="flisning med Albach1[]"
+                         type="checkbox" value="flisning med Albach"/>
+                  <span class="checkmark">Flisning med Albach</span>
+                  <span class="material-symbols-rounded infoNy">help</span>
+                  <div class="infoTextenNy">Flisar separat i lastbilar som ansluter bredvid, bakom eller framför
+                    maskinen
+                    utmed skogsbilväg eller inback. Ej avgörande vilken sida riset ligger på.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_trad_last1">
+                  <input class="checkbox_flisning_med_trad_last1 checkbox-default" id="flisning_med_trad_last1"
+                         name="flisning med traditionell lastbilshugg1[]" type="checkbox"
+                         value="flisning med traditionell lastbilshugg"/>
+                  <span class="checkmark">Flisning med traditionell lastbilshugg</span>
+                  <span class="material-symbols-rounded infoNy">help</span>
+                  <div class="infoTextenNy">Riset ska ligga på höger sida i färdriktningen efter att lastbilen har vänt
+                    på
+                    t.ex. en vändplan. Annars krävs genomfartsväg eller vändmöjlighet vid t.ex. en bra vägkorsning eller
+                    en
+                    riktigt stor vändplan.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_skotar1">
+                  <input class="checkbox_flisning_med_skotar1 checkbox-default" id="flisning_med_skotar1"
+                         name="flisning med skotar1[]"
+                         type="checkbox" value="flisning med skotarhugg"/>
+                  <span class="checkmark">Flisning med skotarhugg</span>
+                  <span class="material-symbols-rounded infoNy">help</span>
+                  <div class="infoTextenNy">Vältan ligger i terräng.</div>
+                </label>
+
+
+              </div>
+
+
+              <div class="col20 leave40 label_map" id="pos1_lat_label">&nbsp;</div>
+              <div class="col20 label_map" id="pos1_lon_label">&nbsp;</div>
+              <h3>Läge 2</h3>
+              <div class="buttons">
+                <button type="button" class="brand-button-yellow getMyPos" data-id="2">
+                  <span class="material-symbols-rounded">location_on</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  <span class="">Använd min position</span>
+                </button>
+                <button type="button" class="remove_marker" href="" id="pos2_remove">Ta bort markör</button>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos2_name">Beskriv.2(t.ex.
+                  lövgrot):</label>
+                <input class="textfield input-default"
+                       id="pos2_name"
+                       maxlength="150"
+                       name="2 Beskrivning"
+                       type="text"/>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos2_amount">Antal vält
+                  2:</label>
+                <input class="textfield input-default"
+                       id="pos2_amount" maxlength="2"
+                       name="2 antal vält"
+                       type="text"/>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 anm">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos2_lat">Lat./NorrSyd
+                    2:</label>
+                  <input class="textfield coord input-default"
+                         id="pos2_lat" maxlength="150"
+                         name="2 lat" type="text"/>
+                  <input
+                    id="pos2_lat_type" name="2 lat typ" type="hidden" value=""/>
+                </div>
+
+                <div class="col-lg-6 anm">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos2_lon">Lon./ÖstVäst2:</label>
+                  <input class="textfield coord input-default"
+                         id="pos2_lon" maxlength="150"
+                         name="2 lon" type="text"/>
+                  <input
+                    id="pos2_lon_type" name="2 lon typ" type="hidden" value=""/>
+                </div>
+              </div>
+
+              <div id="valt2" class="col20 options nyOption d-flex flex-column row-gap-sm align-items-start">
+
+                <label class="input_container" for="pos2cov">
+                  <input class="checkbox_pos2_covered checkbox-default" id="pos2cov" name="2 täckt[]" type="checkbox"
+                         value="Täckt"/>
+                  <span class="checkmark">Täckt</span>
+                </label>
+                <!--<a class="add_marker" href="" id="pos2_add">Lägg till markör</a>-->
+
+
+                <label class="input_container" for="flisning_med_Albach2">
+                  <input class="checkbox_flisning_med_Albach2 checkbox-default" id="flisning_med_Albach2"
+                         name="flisning med Albach2[]"
+                         type="checkbox" value="flisning med Albach"/>
+                  <span class="checkmark">Flisning med Albach</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Flisar separat i lastbilar som ansluter bredvid, bakom eller framför
+                    maskinen
+                    utmed skogsbilväg eller inback. Ej avgörande vilken sida riset ligger på.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_trad_last2">
+                  <input class="checkbox_flisning_med_trad_last2 checkbox-default" id="flisning_med_trad_last2"
+                         name="flisning med traditionell lastbilshugg2[]" type="checkbox"
+                         value="flisning med traditionell lastbilshugg"/>
+                  <span class="checkmark">Flisning med traditionell lastbilshugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Riset ska ligga på höger sida i färdriktningen efter att lastbilen har
+                    vänt
+                    på
+                    t.ex. en vändplan. Annars krävs genomfartsväg eller vändmöjlighet vid t.ex. en bra vägkorsning
+                    eller
+                    en riktigt stor vändplan.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_skotar2">
+                  <input class="checkbox_flisning_med_skotar2 checkbox-default" id="flisning_med_skotar2"
+                         name="flisning med skotar2[]"
+                         type="checkbox" value="flisning med skotarhugg"/>
+                  <span class="checkmark">Flisning med skotarhugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Vältan ligger i terräng.</div>
+                </label>
+
+              </div>
+              <div class="col20 leave40 label_map" id="pos2_lat_label">&nbsp;</div>
+              <div class="col20 label_map" id="pos2_lon_label">&nbsp;</div>
+              <h3>Läge 3</h3>
+              <div class="buttons">
+                <button class="getMyPos brand-button-yellow" data-id="3">
+                  <span class="material-symbols-rounded">location_on</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  <span class="">Använd min position</span>
+                </button>
+                <button class="remove_marker neutral-button-secondary" id="pos3_remove">Ta bort markör</button>
+              </div>
+              <div class="col20">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos3_name">Beskriv.3(t.ex.
+                  lövgrot):</label>
+                <input class="textfield input-default"
+                       id="pos3_name"
+                       maxlength="150"
+                       name="3 Beskrivning"
+                       type="text"/>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos3_amount">Antal vält
+                  3:</label>
+                <input class="textfield input-default"
+                       id="pos3_amount" maxlength="2"
+                       name="3 antal vält"
+                       type="text"/>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos3_lat">Lat./NorrSyd 3:</label>
+                  <input class="textfield input-default coord"
+                         id="pos3_lat"
+                         maxlength="150" name="3 lat"
+                         type="text"/>
+                  <input
+                    id="pos3_lat_type"
+                    name="3 lat typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos3_lon">Lon./ÖstVäst 3:</label>
+                  <input class="textfield input-default coord"
+                         id="pos3_lon"
+                         maxlength="150" name="3 lon"
+                         type="text"/>
+                  <input
+                    id="pos3_lon_type"
+                    name="3 lon typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+              </div>
+              <div id="valt3" class="col20 options nyOption d-flex flex-column row-gap-sm align-items-start">
+
+
+                <label class="input_container" for="pos3cov">
+                  <input class="checkbox_pos3_covered checkbox-default"
+                         id="pos3cov"
+                         name="3 täckt[]" type="checkbox" value="Täckt"/>
+                  <span class="checkmark">Täckt</span>
+                </label>
+                <!--<a class="add_marker" href="" id="pos3_add">Lägg till markör</a>-->
+
+
+                <label class="input_container" for="flisning_med_Albach3">
+                  <input class="checkbox_flisning_med_Albach3 checkbox-default" id="flisning_med_Albach3"
+                         name="flisning med Albach3[]"
+                         type="checkbox" value="flisning med Albach"/>
+                  <span class="checkmark">Flisning med Albach</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Flisar separat i lastbilar som ansluter bredvid, bakom eller framför
+                    maskinen
+                    utmed skogsbilväg eller inback. Ej avgörande vilken sida riset ligger på.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_trad_last3">
+                  <input class="checkbox_flisning_med_trad_last3 checkbox-default" id="flisning_med_trad_last3"
+                         name="flisning med traditionell lastbilshugg3[]" type="checkbox"
+                         value="flisning med traditionell lastbilshugg"/>
+                  <span class="checkmark">Flisning med traditionell lastbilshugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Riset ska ligga på höger sida i färdriktningen efter att lastbilen har vänt
+                    på
+                    t.ex. en vändplan. Annars krävs genomfartsväg eller vändmöjlighet vid t.ex. en bra vägkorsning eller
+                    en
+                    riktigt stor vändplan.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_skotar3">
+                  <input class="checkbox_flisning_med_skotar3 checkbox-default" id="flisning_med_skotar3"
+                         name="flisning med skotar3[]"
+                         type="checkbox" value="flisning med skotarhugg"/>
+                  <span class="checkmark">Flisning med skotarhugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Vältan ligger i terräng.</div>
+                </label>
+
+
+              </div>
+              <div class="col20 leave40 label_map" id="pos3_lat_label">&nbsp;</div>
+              <div class="col20 label_map" id="pos3_lon_label">&nbsp;</div>
+              <h3>Läge 4</h3>
+              <div class="buttons">
+                <button type="button" class="getMyPos brand-button-yellow" data-id="4">
+                  <span class="material-symbols-rounded">location_on</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  <span class="">Använd min position</span>
+                </button>
+                <button type="button" class="remove_marker neutral-button-secondary" id="pos4_remove">Ta bort markör
+                </button>
+              </div>
+              <div class="col20">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos4_name">Beskriv.4(t.ex.
+                  lövgrot):</label>
+                <input class="textfield input-default"
+                       id="pos4_name"
+                       maxlength="150"
+                       name="4 Beskrivning"
+                       type="text"/>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos4_amount">Antal vält
+                  4:</label>
+                <input class="textfield input-default"
+                       id="pos4_amount" maxlength="2"
+                       name="4 antal vält"
+                       type="text"/>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos4_lat">Lat./NorrSyd 4:</label>
+                  <input class="textfield input-default coord"
+                         id="pos4_lat"
+                         maxlength="150" name="4 lat"
+                         type="text"/>
+                  <input
+                    id="pos4_lat_type"
+                    name="4 lat typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos4_lon">Lon./ÖstVäst 4:</label>
+                  <input class="textfield input-default coord"
+                         id="pos4_lon"
+                         maxlength="150" name="4 lon"
+                         type="text"/>
+                  <input
+                    id="pos4_lon_type"
+                    name="4 lon typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+              </div>
+              <div id="valt4" class="col20 options nyOption d-flex flex-column row-gap-sm align-items-start ">
+
+                <label class="input_container" for="pos4cov">
+                  <input class="checkbox_pos4_covered checkbox-default"
+                         id="pos4cov"
+                         name="4 täckt[]" type="checkbox" value="Täckt"/>
+                  <span class="checkmark">Täckt</span>
+                </label>
+                <!--<a class="add_marker" href="" id="pos4_add">Lägg till markör</a>-->
+
+
+                <label class="input_container" for="flisning_med_Albach4">
+                  <input class="checkbox_flisning_med_Albach4 checkbox-default" id="flisning_med_Albach4"
+                         name="flisning med Albach4[]"
+                         type="checkbox" value="flisning med Albach"/>
+                  <span class="checkmark">Flisning med Albach</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Flisar separat i lastbilar som ansluter bredvid, bakom eller framför
+                    maskinen
+                    utmed skogsbilväg eller inback. Ej avgörande vilken sida riset ligger på.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_trad_last4">
+                  <input class="checkbox_flisning_med_trad_last4 checkbox-default" id="flisning_med_trad_last4"
+                         name="flisning med traditionell lastbilshugg4[]" type="checkbox"
+                         value="flisning med traditionell lastbilshugg"/>
+                  <span class="checkmark">Flisning med traditionell lastbilshugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Riset ska ligga på höger sida i färdriktningen efter att lastbilen har vänt
+                    på
+                    t.ex. en vändplan. Annars krävs genomfartsväg eller vändmöjlighet vid t.ex. en bra vägkorsning eller
+                    en
+                    riktigt stor vändplan.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_skotar4">
+                  <input class="checkbox_flisning_med_skotar4 checkbox-default" id="flisning_med_skotar4"
+                         name="flisning med skotar4[]"
+                         type="checkbox" value="flisning med skotarhugg"/>
+                  <span class="checkmark">Flisning med skotarhugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Vältan ligger i terräng.</div>
+                </label>
+
+
+              </div>
+              <div class="col20 leave40 label_map" id="pos4_lat_label">&nbsp;</div>
+              <div class="col20 label_map" id="pos4_lon_label">&nbsp;</div>
+              <h3>Läge 5</h3>
+              <div class="buttons">
+                <button type="button" class="getMyPos brand-button-yellow" data-id="5">
+                  <span class="material-symbols-rounded">location_on</span>
+                  <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  <span class="">Använd min position</span>
+                </button>
+                <button type="button" class="remove_marker neutral-button-secondary" id="pos5_remove">Ta bort markör
+                </button>
+              </div>
+              <div class="col20">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos5_name">Beskriv.5(t.ex.
+                  lövgrot):</label>
+                <input class="textfield input-default"
+                       id="pos5_name"
+                       maxlength="150"
+                       name="5 Beskrivning"
+                       type="text"/>
+              </div>
+              <div class="col20 anm">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="pos5_amount">Antal vält
+                  5:</label>
+                <input class="textfield input-default"
+                       id="pos5_amount" maxlength="2"
+                       name="5 antal vält"
+                       type="text"/>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos5_lat">Lat./NorrSyd 5:</label>
+                  <input class="textfield input-default coord"
+                         id="pos5_lat"
+                         maxlength="150" name="5 lat"
+                         type="text"/>
+                  <input
+                    id="pos5_lat_type"
+                    name="5 lat typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+                <div class="col-lg-6">
+                  <label class="text-sm fw-semi margin-bottom-2xs" for="pos5_lon">Lon./ÖstVäst 5:</label>
+                  <input class="textfield input-default coord"
+                         id="pos5_lon"
+                         maxlength="150" name="5 lon"
+                         type="text"/>
+                  <input
+                    id="pos5_lon_type"
+                    name="5 lon typ"
+                    type="hidden"
+                    value=""/>
+                </div>
+              </div>
+              <div id="valt5" class="col20 options nyOption d-flex flex-column row-gap-sm align-items-start">
+
+                <label class="input_container" for="pos5cov">
+                  <input class="checkbox_pos5_covered checkbox-default"
+                         id="pos5cov"
+                         name="5 täckt[]" type="checkbox" value="Täckt"/>
+                  <span class="checkmark">Täckt</span>
+                </label>
+                <!--<a class="add_marker" href="" id="pos5_add">Lägg till markör</a>-->
+
+
+                <label class="input_container" for="flisning_med_Albach5">
+                  <input class="checkbox_flisning_med_Albach5 checkbox-default" id="flisning_med_Albach5"
+                         name="flisning med Albach5[]"
+                         type="checkbox" value="flisning med Albach"/>
+                  <span class="checkmark">Flisning med Albach</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Flisar separat i lastbilar som ansluter bredvid, bakom eller framför
+                    maskinen
+                    utmed skogsbilväg eller inback. Ej avgörande vilken sida riset ligger på.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_trad_last5">
+                  <input class="checkbox_flisning_med_trad_last5 checkbox-default" id="flisning_med_trad_last5"
+                         name="flisning med traditionell lastbilshugg5[]" type="checkbox"
+                         value="flisning med traditionell lastbilshugg"/>
+                  <span class="checkmark">Flisning med traditionell lastbilshugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Riset ska ligga på höger sida i färdriktningen efter att lastbilen har vänt
+                    på
+                    t.ex. en vändplan. Annars krävs genomfartsväg eller vändmöjlighet vid t.ex. en bra vägkorsning eller
+                    en
+                    riktigt stor vändplan.
+                  </div>
+                </label>
+
+                <label class="input_container" for="flisning_med_skotar5">
+                  <input class="checkbox_flisning_med_skotar5 checkbox-default" id="flisning_med_skotar5"
+                         name="flisning med skotar5[]"
+                         type="checkbox" value="flisning med skotarhugg"/>
+                  <span class="checkmark">Flisning med skotarhugg</span>
+                  <span class="material-icons infoNy">info</span>
+                  <div class="infoTextenNy">Vältan ligger i terräng.</div>
+                </label>
+
+
+              </div>
+              <div class="col20 leave40 label_map" id="pos5_lat_label">&nbsp;</div>
+              <div class="col20 label_map" id="pos5_lon_label">&nbsp;</div>
+            </fieldset>
+            <fieldset class="fieldset_content" id="other_info">
+              <legend>Annat</legend>
+              <div class="clear">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="other">Övrigt (Adress, bankgiro,
+                  kontouppgifter
+                  m.m.): </label>
+                <textarea
+                  class="input-default" style="height: 110px"
+                  cols="14" id="other" name="Övrigt" rows="7">
+                </textarea>
+              </div>
+              <div class="clear d-flex flex-column row-gap-sm align-items-start">
+                <label class="text-sm fw-semi margin-bottom-2xs" for="file_upload1">Bilduppladdning: </label>
+                <input id="file_upload1" name="file_upload1"
+                       type="file"/> <!--
+                  Image types supported
+                  by this PHP build:  GIF, JPG, PNG, WBMP
+                  upload_max_filesize:  128 MB
+                  max_execution_time: 60 S
+                  post_max_size:    128 MB
+                  memory_limit:   128 MB
+                  --> <span>Ladda upp egen karta eller foto. Filformat: JPG, PNG, GIF, BMP. Maxstorlek: 128MB.</span>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button class="submit anmForm neutral-button-secondary" id="send" name="send" title="Skicka"
+                        type="submit" value="Skicka">
+                  <span>Skicka</span>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</top-element>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js">
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Y_AJFkvKKflPQM-VtSLXrWLohHOidH0">
+
+</script>
+<script src="{{ 'jquery.ui.map.full.min.js' | template_path }}?900">
+
+</script>
+<script src="{{ 'gmap.js' | template_path }}?199">
+
+</script>
+<script src="{{ 'rt90_to_wsg84.js' | template_path }}?900">
+
+</script>
+<script src="{{ 'anmalan.js' | template_path }}?900">
+
+</script>
+<script src="{{ 'jquery.validate.min.js' | template_path }}?900">
+
+</script>
+<script src="{{ 'validate_msg.js' | template_path }}?900">
+
+</script>
+
+{% include 'new_footer' %}
+
+
+
+

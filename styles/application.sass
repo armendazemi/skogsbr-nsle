@@ -181,13 +181,13 @@ h1, h2, h3, h4, h5, h6, p
 //    a
 //      @extend .neutral-button-primary
 //
-//.neutral-button-primary-editable
-//  a
-//    @extend .neutral-button-primary
-//
-//.neutral-button-secondary-editable
-//  a
-//    @extend .neutral-button-secondary
+.neutral-button-primary-editable
+  a
+    @extend .neutral-button-primary
+
+.neutral-button-secondary-editable
+  a
+    @extend .neutral-button-secondary
 
 
 .inline-flex-links
@@ -335,3 +335,72 @@ h1, h2, h3, h4, h5, h6, p
     &::before
       background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6.94379C18 7.28106 17.8837 7.57396 17.651 7.82248C17.4183 8.05325 17.123 8.16864 16.7651 8.16864H13.9463C13.7136 8.16864 13.5973 8.28402 13.5973 8.51479V18.7751C13.5973 19.1124 13.472 19.4053 13.2215 19.6538C12.9888 19.8846 12.7025 20 12.3624 20H11.6644C11.3244 20 11.0291 19.8846 10.7785 19.6538C10.5459 19.4053 10.4295 19.1124 10.4295 18.7751V8.51479C10.4295 8.28402 10.3132 8.16864 10.0805 8.16864H7.2349C6.89485 8.16864 6.59955 8.05325 6.34899 7.82248C6.11633 7.57396 6 7.28106 6 6.94379V6.22485C6 5.86982 6.11633 5.57692 6.34899 5.34615C6.59955 5.11538 6.89485 5 7.2349 5H16.7651C17.123 5 17.4183 5.11538 17.651 5.34615C17.8837 5.57692 18 5.86982 18 6.22485V6.94379Z" fill="%23F4AA3B"/></svg>')
       background-size: contain
+
+
+// --------------------------
+// SÄLJSIDA
+// --------------------------
+
+.report-section
+  .col-lg-6:last-of-type
+    .yellow-block
+      border-top: 1px solid $foreground-primary
+
+    @media (min-width: 992px)
+      .yellow-block
+        border-left: 1px solid $foreground-primary
+        border-top: unset
+
+.yellow-block
+  *
+    margin-bottom: $spacing-lg
+
+  a
+    margin-top: $spacing-lg
+    margin-bottom: 0
+
+
+// --------------------------
+// ANMÄLAN
+// --------------------------
+#map_canvas
+  height: 700px
+  margin: 10px 0
+
+.fieldset_content
+  display: flex
+  flex-direction: column
+  row-gap: $spacing-lg
+
+legend
+  @extend .display-sm
+  padding: $spacing-xs 0
+
+.remove_marker
+  @extend .neutral-button-secondary
+  display: none
+
+.input_container
+  display: flex
+  align-items: center
+  column-gap: $spacing-xs
+  flex-wrap: wrap
+
+.infoTextenNy
+  display: none
+  width: 100%
+  padding: $spacing-xs
+  margin-top: $spacing-sm
+  border: 1px solid $border-primary
+  border-radius: $radius-xs
+  color: $text-primary
+  font-size: 14px
+  font-weight: 300
+
+.buttons
+  display: flex
+  flex-wrap: wrap
+  gap: $spacing-sm
+  flex-direction: column
+  @media (min-width: 992px)
+    flex-direction: row
