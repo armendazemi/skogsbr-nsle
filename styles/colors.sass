@@ -60,6 +60,7 @@ $background-default: $white
 $background-secondary: $neutral-100
 $background-hover-light: $alpha-white-80
 $background-disabled: $neutral-100
+$background-brand-section-dark: $neutral-950
 
 $background-yellow-default: $primary-yellow-500
 $background-brand-hover: $primary-yellow-400
@@ -89,7 +90,7 @@ $system-text-error: $red-600
   box-shadow: 0px 8px 24px 0px rgba(16, 24, 40, 0.08), 0px 4px 8px 0px rgba(16, 24, 40, 0.03) !important
 
 
-$bg-colors: (default: $background-default, secondary: $background-secondary, hover-light: $background-hover-light, disabled: $background-disabled, yellow-default: $background-yellow-default, brand-hover: $background-brand-hover, orange-default: $background-orange-default, orange-hover: $background-orange-hover, section-dark: $background-section-dark, section-brand: $background-section-brand, system-background-error: $system-background-error)
+$bg-colors: (default: $background-default, secondary: $background-secondary, hover-light: $background-hover-light, disabled: $background-disabled, brand-section-dark: $background-brand-section-dark, yellow-default: $background-yellow-default, brand-hover: $background-brand-hover, orange-default: $background-orange-default, orange-hover: $background-orange-hover, section-dark: $background-section-dark, section-brand: $background-section-brand, system-background-error: $system-background-error)
 @each $name, $value in $bg-colors
   .bg-#{$name}
     background-color: $value !important

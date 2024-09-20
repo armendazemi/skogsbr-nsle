@@ -1,23 +1,88 @@
 {% include 'new_header' %}
 
-<swiper-slider slides="1" autoplay="true" delay="6000" loop="true" spaceBetweenDesktop="0" spaceBetween="0" speed="1200">
-  <div class="swiper swiper-container">
-    <div class="swiper-wrapper">
-      {% for item in lists.start-hero.rows %}
-        <div class="swiper-slide hero-slide">
-          <img class="hero-slide__image" src="{{ item.bild-mobil }}" srcset="{{ item.bild }} 992w , {{ item.bild-mobil }} 768w"
-               sizes="(max-width: 768px) 768px, 992px" alt="">
-        </div>
-      {% endfor %}
+<section class="hero-section position-relative">
+  <swiper-slider slides="1" autoplay="true" delay="6000" loop="true" spaceBetweenDesktop="0" spaceBetween="0"
+                 speed="1200">
+    <div class="swiper swiper-container">
+      <div class="swiper-wrapper">
+        {% for item in lists.start-hero.rows %}
+          <div class="swiper-slide hero-slide">
+            <img class="hero-slide__image" src="{{ item.bild-mobil }}"
+                 srcset="{{ item.bild }} 992w , {{ item.bild-mobil }} 768w"
+                 sizes="(max-width: 768px) 768px, 992px" alt="">
+          </div>
+        {% endfor %}
+      </div>
     </div>
-  </div>
+  </swiper-slider>
+
+  {% if lists.bildspel-info.rows[0].rubrik.size > 0 %}
+    <top-element>
+      <div class="container hero-content-container text-center text-white">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="hero-content d-flex flex-column row-gap-lg">
+              <p class="hero-content__mini-title subtitle-1">{{ lists.bildspel-info.rows[0].mini-rubrik }}</p>
+              <h1 class="hero-content__title display-lg">{{ lists.bildspel-info.rows[0].rubrik }}</h1>
+              <p class="hero-content__text">{{ lists.bildspel-info.rows[0].text }}</p>
+              <div
+                class="hero-content-cta d-flex flex-column flex-lg-row justify-content-center align-items-center column-gap-lg row-gap-base margin-top-lg">
+                <a href="{{ lists.bildspel-info.rows[0].knapp-1-link }}" class="brand-button-yellow">
+                  {{ lists.bildspel-info.rows[0].knapp-1-text }}
+                </a>
+
+                <a href="{{ lists.bildspel-info.rows[0].knapp-2-link }}" class="brand-button-orange">
+                  {{ lists.bildspel-info.rows[0].knapp-2-text }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </top-element>
+  {% endif %}
+</section>
 
 
-</swiper-slider>
+{% if lists.puffar-startsidan.rows.size > 0 %}
+  <section class="padding-y-2xl padding-y-lg-3xl bg-secondary">
+    <div class="container">
+      <div class="row row-gap-lg">
+        {% for item in lists.puffar-startsidan.rows %}
+          <div class="col-lg-4 ">
+            <div
+              class="puff bg-white radius-sm shadow-lg d-flex flex-column align-items-start row-gap-base padding-y-2xl padding-x-base padding-x-lg-lg">
+              <span class="display-xs">{{ item.rubrik }}</span>
+              <span class="text-secondary">{{ item.text }}</span>
+              <a href="{{ item.knapp-link }}" class="brand-button-yellow">
+                {{ item.knapp-text }}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
 
-<section class="hero-section">
+
+<section class="padding-y-3xl padding-y-lg-5xl">
   <div class="container">
-    <div class="row">
+    <div class="row row-gap-lg">
+
+      <div class="col-lg-6 padding-right-lg-lg order-1 order-lg-0">
+        {% include 'image_map' %}
+      </div>
+
+      <div class="col-lg-6 padding-left-lg-lg">
+        <div class="callout-text d-flex  flex-column row-gap-xl">
+          {{ 'callout-text' | page_editable: class: 'd-flex flex-column row-gap-base diplay-lg-heading text-md-p p-color-secondary' }}
+          <div class="callout-grid align-items-start gap-lg">
+            {{ 'callout-col-1' | page_editable: class: 'display-subtitle-1-heading d-flex flex-column align-items-start row-gap-xs text-md-p p-color-secondary brand-button-yellow-editable heading-office-icon' }}
+            {{ 'callout-col-2' | page_editable: class: 'display-subtitle-1-heading d-flex flex-column align-items-start row-gap-xs text-md-p p-color-secondary heading-terminal-icon' }}
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -16,7 +16,7 @@ export default class AccordionComponent extends HTMLElement {
 
   connectedCallback () {
     this.button.addEventListener('click', this.handleAction.bind(this));
-    window.addEventListener('click', this.handleClickOutside.bind(this));
+    window.addEventListener('click', this.handleOutsideClick.bind(this));
   }
 
   handleAction () {
@@ -29,14 +29,15 @@ export default class AccordionComponent extends HTMLElement {
 
   openAccordion () {
     this.handleState('open');
+    console.log('opening button: ', this.button);
     this.dropdown.style.height = this.dropdown.scrollHeight + 'px';
-    this.dropdown.classList.add('open');
+    this.button.setAttribute('aria-expanded', 'true');
   }
 
   closeAccordion () {
     this.handleState('close');
     this.dropdown.style.height = '0px';
-    this.dropdown.classList.remove('open');
+    this.button.setAttribute('aria-expanded', 'false');
   }
 
   handleState (state, shouldPropagate = true) {
@@ -46,7 +47,7 @@ export default class AccordionComponent extends HTMLElement {
     }
   }
 
-  handleClickOutside (event) {
+  handleOutsideClick (event) {
     if (!this.contains(event.target)) {
       this.closeAccordion();
     }

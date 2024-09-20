@@ -87,7 +87,6 @@ export default class SwiperSlider extends HTMLElement {
         },
       },
     };
-    console.log(config);
     return config;
   }
 
