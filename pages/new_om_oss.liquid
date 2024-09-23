@@ -1,0 +1,66 @@
+{% assign headerBg = 'bg-brand-section-dark' %}
+
+{% include 'new_header' %}
+
+
+<top-element>
+  <section class="padding-y-3xl padding-top-lg-2xl padding-bottom-lg-4xl bg-brand-section-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          {{ 'sub-heading' | page_editable: class: 'display-lg-heading text-lg text-white d-flex flex-column row-gap-base row-gap-lg-lg' }}
+        </div>
+      </div>
+    </div>
+  </section>
+</top-element>
+
+
+{% capture hasContent %}{{ 'callout-text-1' | has_page_editable }}{% endcapture %}
+{% if hasContent == 'true' %}
+  <section class="padding-y-3xl padding-y-lg-5xl">
+    <div class="container">
+      {% if admin %}
+        <div class="callout-grid column-gap-2xl row-gap-xl mb-3">
+          <p class="subtitle-1">Text yta</p>
+          <p class="subtitle-1">Bild yta</p>
+        </div>
+      {% endif %}
+
+      <div class="callout-grid column-gap-2xl row-gap-xl">
+        <div class="callout-text d-flex flex-column row-gap-base">
+          {{ 'callout-text-1' | page_editable: class: 'd-flex flex-column align-items-start row-gap-lg diplay-md-heading text-md-p p-color-secondary brand-button-yellow-editable' }}
+        </div>
+
+        {{ 'callout-image-1' | page_editable: class: 'callout-image' }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+<section class="padding-y-3xl padding-y-lg-4xl">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        {{ 'goals-heading' | page_editable: class: 'display-lg-heading text-lg text-primary' }}
+      </div>
+
+      <div class="col-lg-10">
+        <div class="icon-cards">
+          {{ 'icon-card-1' | page_editable: class: 'display-xs-heading p-color-secondary icon-card d-flex flex-column align-items-center row-gap-lg text-center' }}
+
+          {{ 'icon-card-2' | page_editable: class: 'display-xs-heading p-color-secondary icon-card d-flex flex-column align-items-center row-gap-lg text-center' }}
+
+          {{ 'icon-card-3' | page_editable: class: 'display-xs-heading p-color-secondary icon-card d-flex flex-column align-items-center row-gap-lg text-center' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'certificate' %}
+{% include 'report_section' %}
+
+
+{% include 'new_footer' %}

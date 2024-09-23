@@ -1,0 +1,44 @@
+{% assign headerBg = 'bg-brand-section-dark' %}
+{% include 'new_header' %}
+
+<top-element>
+  <section class="padding-y-3xl padding-top-lg-2xl padding-bottom-lg-4xl bg-brand-section-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          {{ 'sub-heading' | page_editable: class: 'display-lg-heading text-lg text-white d-flex flex-column row-gap-base row-gap-lg-lg' }}
+        </div>
+      </div>
+    </div>
+  </section>
+</top-element>
+
+
+<section class="padding-y-3xl padding-y-lg-5xl">
+  <div class="container">
+    <div class="row row-gap-lg">
+
+      <div class="col-lg-6 padding-right-lg-lg ">
+        {{ "map-heading" | page_editable: class: 'display-lg-heading text-md-p p-color-secondary' }}
+        {% include 'image_map' %}
+      </div>
+
+      <div class="col-lg-6 padding-left-lg-lg">
+        <div class="terminals d-flex flex-column row-gap-xl align-items-start">
+          {% for item in lists.terminaler.rows %}
+            <div class="terminal d-flex flex-column row-gap-xs">
+              <span class="{% if forloop.index == 1 %} display-xs {% else %} subtitle-1 {% endif %}">{{ item.terminal }}</span>
+              <div class="">
+                {{ item.info }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+{% include 'new_footer' %}

@@ -404,3 +404,24 @@ legend
   flex-direction: column
   @media (min-width: 992px)
     flex-direction: row
+
+
+// --------------------------
+// OM OSS
+// --------------------------
+.icon-cards
+  display: grid
+  grid-template-columns: 1fr
+  gap: $spacing-2xl
+  justify-content: center
+  margin-top: $spacing-xl
+
+  @media (min-width: 992px)
+    grid-template-columns: repeat(3, 1fr)
+    margin-top: 80px
+
+
+.icon-card
+  img
+    width: 40px
+    height: 40px
